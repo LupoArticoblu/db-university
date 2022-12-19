@@ -1,0 +1,5 @@
+1(non funzionante)
+SELECT `students`.`id`
+FROM `courses`
+JOIN `degrees` ON `courses`.`student_id` = `students`.`id`
+WHERE `degrees`.`name` = 'Corso di Laurea in Economia'
