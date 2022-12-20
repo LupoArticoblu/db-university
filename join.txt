@@ -1,5 +1,40 @@
-1(non funzionante)
-SELECT `students`.`id`
+1
+SELECT `students`.`name`,`student`.`surname`,`student`.`registration_number`
+FROM `students`
+JOIN `degrees` ON `students`.`degrees_id` = `degrees`.`id`
+WHERE `degrees`.`name` = 'Corso di Laurea in Economia';
+
+2
+SELECT `degrees`.*,
+FROM `degrees`
+JOIN `departments` ON `departments`.`id` = `degrees`.`department_id`
+WHERE `departments`.`name` = 'dipartimento_di_neuroscienze'
+AND  `degrees`.`level` = 'magistrale';
+
+3
+SELECT `courses`.*,
 FROM `courses`
-JOIN `degrees` ON `courses`.`student_id` = `students`.`id`
-WHERE `degrees`.`name` = 'Corso di Laurea in Economia'
+JOIN `course_teacher` ON ○♠course_teacher`.`course_id` = `courses`.`id`
+JOIN `teachers` ON `course_teacher`.`teacher`.`id` = ....
+
+
+4
+SELECT `students`.`name`,`students`.`surname`,`students`.`registration_number`,`degrees`.`name` AS 'corso_di_laurea',`departments`.`name` AS 'dipartimento'
+FROM `students`
+JOIN `degrees` ON `degrees`.`id` = `students`.`degrees_id`
+JOIN ....
+
+5
+SELECT `degrees`.`name` AS `degrees_name`, `courses`.`name` AS `courses_name`, `teachers`.`name` AS `t_name`, `teachers`.`surname` AS `t_surname`, `courses`.`cfu`
+FROM `degrees`
+JOIN `courses` ON `degrees`.`id` = `courses`.`degree_id`
+JOIN `course_teacher` ON `courses`.`id` = `course_teacher`.`course_id`
+JOIN `teachers` ON `course_teacher`.`teacher_id` = `teachers`.`id`
+ORDER BY `degrees`.`name`,`t_surname`, `t_name`;
+
+
+
+6
+SELECT
+FROM
+JOIN
